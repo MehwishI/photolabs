@@ -9,9 +9,7 @@ function PhotoFavButton(props) {
   const [photoIsFavorited, setPhotoIsFavorited] = useState(false);
 
   const handleClick = () => {
-    console.log("photoIsFavorited before set with id:", photoIsFavorited, id);
-
-    //checking and setting photoisFavorite
+    //checking and setting photo as Favorite state
     photoIsFavorited ? setPhotoIsFavorited(false) : setPhotoIsFavorited(true);
 
     //updating favorite list

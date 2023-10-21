@@ -6,7 +6,7 @@ import TopicList from "./TopicList";
 
 const TopNavigationBar = (props) => {
   const [isFavPhotoExist, setisFavPhotoExist] = useState(false);
-  //console.log("in nav bar", props.favList);
+  
   const { favList, topicData, getPhotosByTopics } = props;
 
   useEffect(() => {

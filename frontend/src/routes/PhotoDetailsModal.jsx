@@ -5,11 +5,22 @@ import closeSymbol from "../assets/closeSymbol.svg";
 import PhotoFavButton from "components/PhotoFavButton";
 import PhotoList from "components/PhotoList";
 
-
-
 const PhotoDetailsModal = (props) => {
-  console.log("props received by photodetailsmodal:-", props);
-  const { showModal, setShowModal, selectedPhoto } = props;
+  //destructuring props
+
+  const {
+    showModal,
+    setShowModal,
+    favList,
+    setFavList,
+    toggleModal,
+    selectedPhoto,
+    setSelectedPhoto,
+    key,
+    id,
+    photoData,
+  } = props;
+
   return showModal ? (
     <div className="photo-details-modal">
       <div className="photo-details-modal__top-bar">
@@ -21,10 +32,10 @@ const PhotoDetailsModal = (props) => {
         </button>
       </div>
       <PhotoFavButton
-        favList={props.favList}
-        setFavList={props.setFavList}
+        favList={favList}
+        setFavList={setFavList}
         //key={props.key}
-        id={props.id}
+        id={id}
         modal={true}
       />
 
@@ -50,14 +61,14 @@ const PhotoDetailsModal = (props) => {
       </div>
       <div className="photo-details-modal_similar-photos">Similar Photos</div>
       <PhotoList
-        favList={props.favList}
-        setFavList={props.setFavList}
-        toggleModal={props.toggleModal}
-        selectedPhoto={props.selectedPhoto}
-        setSelectedPhoto={props.setSelectedPhoto}
-        key={props.selectedPhoto.id}
-        id={props.selectedPhoto.id}
-        photoData={props.photoData}
+        favList={favList}
+        setFavList={setFavList}
+        toggleModal={toggleModal}
+        selectedPhoto={selectedPhoto}
+        setSelectedPhoto={setSelectedPhoto}
+        key={selectedPhoto.id}
+        id={selectedPhoto.id}
+        photoData={photoData}
       />
     </div>
   ) : null;

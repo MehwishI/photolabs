@@ -4,8 +4,15 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
-  const { photoData, setSelectedPhoto, toggleModal, favList, setFavList } =
-    props;
+  const {
+    key,
+    id,
+    photoData,
+    setSelectedPhoto,
+    toggleModal,
+    favList,
+    setFavList,
+  } = props;
 
   const handleClick = () => {
     setSelectedPhoto(photoData);
@@ -17,7 +24,6 @@ const PhotoListItem = (props) => {
       <PhotoFavButton
         favList={favList}
         setFavList={setFavList}
-        //key={props.key}
         id={photoData.id}
       />
       <img

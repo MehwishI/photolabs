@@ -3,7 +3,6 @@ import React, { useReducer, useState, useEffect } from "react";
 const reducer = (state, action) => {
   switch (action.type) {
     case "FAV_PHOTO_ADDED":
-      console.log("action:", action);
       const newFavList = [...state.favList, action.payload];
       return { ...state, favList: newFavList };
 
@@ -23,7 +22,6 @@ const reducer = (state, action) => {
       return { ...state, selectedPhoto: action.payload };
 
     case "DISPLAY_PHOTO_DETAILS":
-      console.log("action.payload in display photo details", action.payload);
       return { ...state, showModal: action.payload };
 
     default:
@@ -43,6 +41,7 @@ const useApplicationData = () => {
   };
 
   useEffect(() => {
+    //fetch request to get photos
     fetch("http://localhost:8001/api/photos")
       .then((res) => res.json())
       .then((photoData) =>
@@ -50,6 +49,7 @@ const useApplicationData = () => {
       )
       .then((error) => console.error(error));
 
+    //fetch request to get topics
     fetch("http://localhost:8001/api/topics")
       .then((res) => res.json())
       .then((topicData) =>
@@ -78,7 +78,6 @@ const useApplicationData = () => {
     dispatch({ type: "DISPLAY_PHOTO_DETAILS", payload: !state.showModal });
   };
   const getPhotosByTopics = (topic_id) => {
-    console.log("topicid:", topic_id);
     fetch(`http://localhost:8001/api/topics/photos/${topic_id}`)
       .then((res) => res.json())
       .then((photoData) => {

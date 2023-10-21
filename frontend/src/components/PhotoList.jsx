@@ -19,8 +19,8 @@ const PhotoList = (props) => {
   const photoList = photoData.map((photo) => {
     return (
       <PhotoListItem
-        key={key}
-        id={id}
+        key={photo.id}
+        id={photo.id}
         favList={favList}
         setFavList={setFavList}
         toggleModal={toggleModal}

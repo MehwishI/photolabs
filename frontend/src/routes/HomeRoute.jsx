@@ -3,25 +3,35 @@ import React, { useState } from "react";
 import "../styles/HomeRoute.scss";
 import TopNavigationBar from "components/TopNavigationBar";
 import PhotoList from "components/PhotoList";
+import photos from "mocks/photos";
 
 const HomeRoute = (props) => {
+  const {
+    favList,
+    topicData,
+    getPhotosByTopics,
+    setFavList,
+    toggleModal,
+    selectedPhoto,
+    setSelectedPhoto,
+    photoData,
+  } = props;
   return (
     <div className="home-route">
-      {/* Insert React */}
       <TopNavigationBar
-        favList={props.favList}
-        topicData={props.topicData}
-        getPhotosByTopics={props.getPhotosByTopics}
+        favList={favList}
+        topicData={topicData}
+        getPhotosByTopics={getPhotosByTopics}
       />
       <PhotoList
-        favList={props.favList}
-        setFavList={props.setFavList}
-        toggleModal={props.toggleModal}
-        selectedPhoto={props.selectedPhoto}
-        setSelectedPhoto={props.setSelectedPhoto}
-        key={props.selectedPhoto.id}
-        id={props.selectedPhoto.id}
-        photoData={props.photoData}
+        favList={favList}
+        setFavList={setFavList}
+        toggleModal={toggleModal}
+        selectedPhoto={selectedPhoto}
+        setSelectedPhoto={setSelectedPhoto}
+        key={selectedPhoto.id}
+        id={selectedPhoto.id}
+        photoData={photoData}
       />
     </div>
   );
