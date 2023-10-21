@@ -4,7 +4,7 @@ import FavIcon from "./FavIcon";
 import "../styles/PhotoFavButton.scss";
 
 function PhotoFavButton(props) {
-  const [favClass, setFavClass] = useState("photo-list__fav-icon");
+  //const [favClass, setFavClass] = useState("photo-list__fav-icon");
 
   const { id, favList, setFavList, modal } = props;
   //console.log("props:", props);
@@ -13,7 +13,7 @@ function PhotoFavButton(props) {
 
   const handleClick = () => {
     // console.log("fav button clicked!");
-    setFavClass("photo-list__fav-icon-svg");
+    // setFavClass("photo-list__fav-icon-svg");
 
     if (photoIsFavorited) {
       setPhotoIsFavorited(false);
@@ -28,11 +28,7 @@ function PhotoFavButton(props) {
       //remove the photo from the fav list
       newFavList = favList.filter((item) => item !== id);
     } else {
-      // console.log(
-      //   "FavList length,inside else  condition:",
-      //   favList,
-      //   favList.length
-      // );
+     
       //add to the new fav list
       newFavList = [...favList, id];
     }

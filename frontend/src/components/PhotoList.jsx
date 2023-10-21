@@ -60,6 +60,9 @@ import photos from "mocks/photos";
 
 const PhotoList = (props) => {
   const photoList = photos.map((photo) => {
+    // console.log("props.selectedPhoto:", props.selectedPhoto);
+    // console.log("photo from map loop:", photo);
+
     return (
       <PhotoListItem
         //sampleData={photo}
@@ -68,7 +71,7 @@ const PhotoList = (props) => {
         favList={props.favList}
         setFavList={props.setFavList}
         toggleModal={props.toggleModal}
-        // selectedPhoto={photo}
+        // selectedPhoto={prop}
         photoData={photo}
         setSelectedPhoto={props.setSelectedPhoto}
       />

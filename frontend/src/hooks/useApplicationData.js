@@ -29,8 +29,8 @@ const reducer = (state, action) => {
 };
 
 const useApplicationData = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [selectedPhoto, setSelectedPhoto] = useState({});
+  // const [showModal, setShowModal] = useState(false);
+  //const [selectedPhoto, setSelectedPhoto] = useState({});
   //const [favList, setFavList] = useState([]);
 
   // The state object will contain the entire state of the application.
@@ -50,35 +50,43 @@ const useApplicationData = () => {
     showModal: false,
     selectedPhoto: {},
   };
+  //console.log("initialState:", initialState);
 
   // const toggleModal = () => {
   //  setShowModal(!showModal);
   // };
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const updateToFavPhotoIds = (favPhotoId) => {
     // setFavList(list);
-    console.log("favPhotoId:", favPhotoId);
+    // console.log("favPhotoId:", favPhotoId);
     dispatch({ type: "FAV_PHOTO_ADDED", payload: favPhotoId });
   };
+
+  // const updateToFavPhotoIds = (favPhotoId) => {
+  //   // setFavList(list);
+  //  // console.log("favPhotoId:", favPhotoId);
+  //   dispatch({ type: "FAV_PHOTO_R", payload: favPhotoId });
+  // };
   const setPhotoSelected = (photo) => {
     //setSelectedPhoto(photo);
     //dispatch here
     //console.log("photo:", photo);
     dispatch({ type: "SELECT_PHOTO", payload: photo });
   };
-  const onClosePhotoDetailsModal = (value) => {
+  const onClosePhotoDetailsModal = () => {
     // if (showModal) {
     //setShowModal(!showModal);
 
     //console.log("showModal value before dispatch: ", showModal);
-    dispatch({ type: "DISPLAY_PHOTO_DETAILS", payload: value });
-    console.log("showModal value after dispatch: ", !showModal);
+    dispatch({ type: "DISPLAY_PHOTO_DETAILS", payload: !state.showModal });
+    // console.log("showModal value after dispatch: ", !state.showModal);
 
     // }
   };
-  const [state, dispatch] = useReducer(reducer, initialState);
+  //const [state, dispatch] = useReducer(reducer, initialState);
 
-  console.log("state:", state);
+  //console.log("state:", state);
   return {
     state,
     updateToFavPhotoIds,
