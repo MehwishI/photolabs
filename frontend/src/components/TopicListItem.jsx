@@ -13,6 +13,7 @@ const sampleDataForTopicListItem = {
 // }
 
 const TopicListItem = (props) => {
+  console.log("topicid:", props.topic.id);
   return (
     <div className="topic-list__item">
       <h3 onClick={() => props.getPhotosByTopics(props.topic.id)}>

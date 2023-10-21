@@ -67,13 +67,15 @@ const useApplicationData = () => {
       .then((res) => res.json())
       .then((photoData) =>
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData })
-      );
+      )
+      .then((error) => console.error(error));
 
     fetch("http://localhost:8001/api/topics")
       .then((res) => res.json())
       .then((topicData) =>
         dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData })
-      );
+      )
+      .then((error) => console.error(error));
   }, []);
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -96,7 +98,8 @@ const useApplicationData = () => {
     dispatch({ type: "DISPLAY_PHOTO_DETAILS", payload: !state.showModal });
   };
   const getPhotosByTopics = (topic_id) => {
-    fetch(`http://localhost:8001/api/topics/photos/:${topic_id}`)
+    console.log("topicid:", topic_id);
+    fetch(`http://localhost:8001/api/topics/photos/${topic_id}`)
       .then((res) => res.json())
       .then((photoData) => {
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData });
@@ -108,7 +111,7 @@ const useApplicationData = () => {
     updateToFavPhotoIds,
     setPhotoSelected,
     onClosePhotoDetailsModal,
-    getPhotosByTopics
+    getPhotosByTopics,
   };
 };
 
