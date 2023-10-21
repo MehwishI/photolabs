@@ -25,4 +25,6 @@ npm start
 ```
 
 MAIN PAGE - FRONT END
-![MAIN PAGE - FRONT END](https://github.com/MehwishI/photolabs/blob/main/frontend/public/screenshot.JPG?raw=true)
+![List-of-Photos](https://github.com/MehwishI/photolabs/blob/main/frontend/docs/list-of-photos.JPG?raw=true)
+
+![Photo-enlarged](https://github.com/MehwishI/photolabs/blob/main/frontend/docs/photo-enlarged.JPG?raw=true)
