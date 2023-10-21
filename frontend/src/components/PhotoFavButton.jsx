@@ -15,25 +15,27 @@ function PhotoFavButton(props) {
     // console.log("fav button clicked!");
     // setFavClass("photo-list__fav-icon-svg");
 
-    if (photoIsFavorited) {
-      setPhotoIsFavorited(false);
-    } else {
-      setPhotoIsFavorited(true);
-    }
+    console.log("photoIsFavorited before set with id:", photoIsFavorited, id);
+
+    //check and setting photoisFavorite
+    photoIsFavorited ? setPhotoIsFavorited(false) : setPhotoIsFavorited(true);
+
+    console.log("photoIsFavorited after set with id:", photoIsFavorited, id);
 
     //add this photo to favList
     let newFavList;
     // console.log("id of this photo", id);
-    if (favList.includes(id)) {
-      //remove the photo from the fav list
-      newFavList = favList.filter((item) => item !== id);
-    } else {
-     
-      //add to the new fav list
-      newFavList = [...favList, id];
-    }
-    //console.log("newFavList", newFavList);
-    setFavList(newFavList);
+    console.log(" current favList:", favList);
+    // if (favList.includes(id)) {
+    //   //remove the photo from the fav list
+    //   newFavList = favList.filter((item) => item !== id);
+    // } else {
+    //   //add to the new fav list
+    //   newFavList = [...favList, id];
+    // }
+    // console.log("newFavList", newFavList);
+    //updating favorite list
+    setFavList(id);
   };
   //checking if the photo is already in the favList (passed from props)
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer, useState, useEffect } from "react";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -8,9 +8,13 @@ const reducer = (state, action) => {
       return { ...state, favList: newFavList };
 
     case "FAV_PHOTO_REMOVED":
-      const newFavListR = favList.filter((item) => item !== action.payload);
+      const newFavListR = state.favList.filter(
+        (item) => item !== action.payload
+      );
       return { ...state, favList: newFavListR };
-    // case SET_PHOTO_DATA:
+
+    case "SET_PHOTO_DATA":
+      return { ...state, photoData: action.payload };
 
     //    return {}
     // case SET_TOPIC_DATA:
@@ -46,6 +50,8 @@ const useApplicationData = () => {
   //   showModal: showModal,
   // };
   const initialState = {
+    photoData: [],
+    topicData: [],
     favList: [],
     showModal: false,
     selectedPhoto: {},
@@ -55,12 +61,24 @@ const useApplicationData = () => {
   // const toggleModal = () => {
   //  setShowModal(!showModal);
   // };
+  useEffect(() => {
+    fetch("http://localhost:8001/api/photos")
+      .then((res) => res.json())
+      .then((photoData) =>
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData })
+      );
+  }, []);
+
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const updateToFavPhotoIds = (favPhotoId) => {
     // setFavList(list);
     // console.log("favPhotoId:", favPhotoId);
-    dispatch({ type: "FAV_PHOTO_ADDED", payload: favPhotoId });
+    if (!state.favList.includes(favPhotoId)) {
+      dispatch({ type: "FAV_PHOTO_ADDED", payload: favPhotoId });
+    } else {
+      dispatch({ type: "FAV_PHOTO_REMOVED", payload: favPhotoId });
+    }
   };
 
   // const updateToFavPhotoIds = (favPhotoId) => {
@@ -69,9 +87,6 @@ const useApplicationData = () => {
   //   dispatch({ type: "FAV_PHOTO_R", payload: favPhotoId });
   // };
   const setPhotoSelected = (photo) => {
-    //setSelectedPhoto(photo);
-    //dispatch here
-    //console.log("photo:", photo);
     dispatch({ type: "SELECT_PHOTO", payload: photo });
   };
   const onClosePhotoDetailsModal = () => {

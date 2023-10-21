@@ -12,15 +12,6 @@ import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  // const [showModal, setShowModal] = useState(false);
-  // const [selectedPhoto, setSelectedPhoto] = useState("");
-  // const [favList, setFavList] = useState([]);
-
-  // const toggleModal = () => {
-  //   setShowModal(true);
-  // };
-  //console.log("favList:", favList);
-
   const {
     state,
     updateToFavPhotoIds,
@@ -37,6 +28,7 @@ const App = () => {
         key={state.selectedPhoto.id}
         id={state.selectedPhoto.id}
         favList={state.favList}
+        photoData={state.photoData}
         setFavList={updateToFavPhotoIds}
       />
       {state.showModal && (
@@ -48,6 +40,7 @@ const App = () => {
             id={state.selectedPhoto.id}
             favList={state.favList}
             setFavList={updateToFavPhotoIds}
+            photoData={state.photoData}
           />
         </>
       )}

@@ -20,6 +20,7 @@ const PhotoListItem = (props) => {
     props;
 
   const handleClick = () => {
+    
     setSelectedPhoto(photoData);
     toggleModal();
   };

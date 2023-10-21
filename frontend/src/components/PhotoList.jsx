@@ -59,21 +59,29 @@ import photos from "mocks/photos";
 // ];
 
 const PhotoList = (props) => {
-  const photoList = photos.map((photo) => {
-    // console.log("props.selectedPhoto:", props.selectedPhoto);
-    // console.log("photo from map loop:", photo);
-
+  const {
+    favList,
+    setFavList,
+    toggleModal,
+    selectedPhoto,
+    setSelectedPhoto,
+    key,
+    id,
+    photoData,
+  } = props;
+  console.log("photoData received by Photolist", photoData);
+  const photoList = photoData.map((photo) => {
     return (
       <PhotoListItem
         //sampleData={photo}
-        key={photo.id}
-        id={photo.id}
-        favList={props.favList}
-        setFavList={props.setFavList}
-        toggleModal={props.toggleModal}
+        key={id}
+        id={id}
+        favList={favList}
+        setFavList={setFavList}
+        toggleModal={toggleModal}
         // selectedPhoto={prop}
         photoData={photo}
-        setSelectedPhoto={props.setSelectedPhoto}
+        setSelectedPhoto={setSelectedPhoto}
       />
     );
   });

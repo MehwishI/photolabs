@@ -63,6 +63,7 @@ const PhotoDetailsModal = (props) => {
         setSelectedPhoto={props.setSelectedPhoto}
         key={props.selectedPhoto.id}
         id={props.selectedPhoto.id}
+        photoData={props.photoData}
       />
     </div>
   ) : null;
