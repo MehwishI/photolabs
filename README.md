@@ -25,4 +25,4 @@ npm start
 ```
 
 MAIN PAGE - FRONT END
-[https://github.com/MehwishI/photolabs/blob/main/frontend/public/screenshot.JPG?raw=true]
+![MAIN PAGE - FRONT END](https://github.com/MehwishI/photolabs/blob/main/frontend/public/screenshot.JPG?raw=true)
