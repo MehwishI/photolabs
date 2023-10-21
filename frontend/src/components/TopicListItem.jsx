@@ -7,18 +7,12 @@ const sampleDataForTopicListItem = {
   slug: "topic-1",
   label: "Nature",
 };
-// const handleClick=(props.id)=>{
-//   props.getPhotosByTopics
-
-// }
 
 const TopicListItem = (props) => {
-  console.log("topicid:", props.topic.id);
+  const { topic, getPhotosByTopics } = props;
   return (
     <div className="topic-list__item">
-      <h3 onClick={() => props.getPhotosByTopics(props.topic.id)}>
-        {props.topic.title}
-      </h3>
+      <h3 onClick={() => getPhotosByTopics(topic.id)}>{topic.title}</h3>
     </div>
   );
 };

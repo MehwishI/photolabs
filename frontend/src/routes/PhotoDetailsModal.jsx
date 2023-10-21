@@ -5,13 +5,7 @@ import closeSymbol from "../assets/closeSymbol.svg";
 import PhotoFavButton from "components/PhotoFavButton";
 import PhotoList from "components/PhotoList";
 
-// const handleClick = () => {
-//   setShowModal(false);
 
-//   // window.opener = null;
-//   // window.open("", "_self");
-//   // window.close();
-// };
 
 const PhotoDetailsModal = (props) => {
   console.log("props received by photodetailsmodal:-", props);

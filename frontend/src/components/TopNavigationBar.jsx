@@ -7,20 +7,16 @@ import TopicList from "./TopicList";
 const TopNavigationBar = (props) => {
   const [isFavPhotoExist, setisFavPhotoExist] = useState(false);
   //console.log("in nav bar", props.favList);
+  const { favList, topicData, getPhotosByTopics } = props;
 
   useEffect(() => {
-    props.favList.length !== 0
-      ? setisFavPhotoExist(true)
-      : setisFavPhotoExist(false);
-  }, [props.favList]);
-  //isFavPhotoExist={isFavPhotoExist}
+    favList.length !== 0 ? setisFavPhotoExist(true) : setisFavPhotoExist(false);
+  }, [favList]);
+
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <TopicList
-        topicData={props.topicData}
-        getPhotosByTopics={props.getPhotosByTopics}
-      />
+      <TopicList topicData={topicData} getPhotosByTopics={getPhotosByTopics} />
       <FavBadge isFavPhotoExist={isFavPhotoExist} />
     </div>
   );

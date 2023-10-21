@@ -19,7 +19,6 @@ const PhotoList = (props) => {
   const photoList = photoData.map((photo) => {
     return (
       <PhotoListItem
-        //sampleData={photo}
         key={key}
         id={id}
         favList={favList}

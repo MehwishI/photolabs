@@ -34,22 +34,6 @@ const reducer = (state, action) => {
 };
 
 const useApplicationData = () => {
-  // const [showModal, setShowModal] = useState(false);
-  //const [selectedPhoto, setSelectedPhoto] = useState({});
-  //const [favList, setFavList] = useState([]);
-
-  // The state object will contain the entire state of the application.
-  // The updateToFavPhotoIds action can be used to set the favourite photos.
-  // The setPhotoSelected action can be used when the user selects a photo.
-  // The onClosePhotoDetailsModal action can be used to close the modal.
-
-  //const [state,setState]=useState({selectedPhoto,favList,showModal})
-
-  // const state = {
-  //   selectedPhoto: selectedPhoto,
-  //   favList: favList,
-  //   showModal: showModal,
-  // };
   const initialState = {
     photoData: [],
     topicData: [],
@@ -57,11 +41,7 @@ const useApplicationData = () => {
     showModal: false,
     selectedPhoto: {},
   };
-  //console.log("initialState:", initialState);
 
-  // const toggleModal = () => {
-  //  setShowModal(!showModal);
-  // };
   useEffect(() => {
     fetch("http://localhost:8001/api/photos")
       .then((res) => res.json())
