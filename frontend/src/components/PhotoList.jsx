@@ -69,7 +69,7 @@ const PhotoList = (props) => {
     id,
     photoData,
   } = props;
-  console.log("photoData received by Photolist", photoData);
+ // console.log("photoData received by Photolist", photoData);
   const photoList = photoData.map((photo) => {
     return (
       <PhotoListItem

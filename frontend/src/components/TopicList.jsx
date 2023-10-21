@@ -22,9 +22,15 @@ import topics from "mocks/topics";
 //   },
 // ];
 
-const TopicList = () => {
-  const topicList = topics.map((topic) => {
-    return <TopicListItem sampleData={topic} key={topic.id} />;
+const TopicList = (props) => {
+  const topicList = props.topicData.map((topic) => {
+    return (
+      <TopicListItem
+        topic={topic}
+        key={topic.id}
+        getPhotosByTopics={props.getPhotosByTopics}
+      />
+    );
   });
   return <div className="top-nav-bar__topic-list">{topicList}</div>;
 };

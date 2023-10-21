@@ -16,8 +16,9 @@ const reducer = (state, action) => {
     case "SET_PHOTO_DATA":
       return { ...state, photoData: action.payload };
 
-    //    return {}
-    // case SET_TOPIC_DATA:
+    case "SET_TOPIC_DATA":
+      return { ...state, topicData: action.payload };
+
     case "SELECT_PHOTO":
       return { ...state, selectedPhoto: action.payload };
 
@@ -67,6 +68,12 @@ const useApplicationData = () => {
       .then((photoData) =>
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData })
       );
+
+    fetch("http://localhost:8001/api/topics")
+      .then((res) => res.json())
+      .then((topicData) =>
+        dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData })
+      );
   }, []);
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -81,32 +88,27 @@ const useApplicationData = () => {
     }
   };
 
-  // const updateToFavPhotoIds = (favPhotoId) => {
-  //   // setFavList(list);
-  //  // console.log("favPhotoId:", favPhotoId);
-  //   dispatch({ type: "FAV_PHOTO_R", payload: favPhotoId });
-  // };
   const setPhotoSelected = (photo) => {
     dispatch({ type: "SELECT_PHOTO", payload: photo });
   };
   const onClosePhotoDetailsModal = () => {
-    // if (showModal) {
-    //setShowModal(!showModal);
-
     //console.log("showModal value before dispatch: ", showModal);
     dispatch({ type: "DISPLAY_PHOTO_DETAILS", payload: !state.showModal });
-    // console.log("showModal value after dispatch: ", !state.showModal);
-
-    // }
   };
-  //const [state, dispatch] = useReducer(reducer, initialState);
+  const getPhotosByTopics = (topic_id) => {
+    fetch(`http://localhost:8001/api/topics/photos/:${topic_id}`)
+      .then((res) => res.json())
+      .then((photoData) => {
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData });
+      });
+  };
 
-  //console.log("state:", state);
   return {
     state,
     updateToFavPhotoIds,
     setPhotoSelected,
     onClosePhotoDetailsModal,
+    getPhotosByTopics
   };
 };
 
@@ -117,6 +119,7 @@ export const ACTIONS = {
   SET_TOPIC_DATA: "SET_TOPIC_DATA",
   SELECT_PHOTO: "SELECT_PHOTO",
   DISPLAY_PHOTO_DETAILS: "DISPLAY_PHOTO_DETAILS",
+  GET_PHOTOS_BY_TOPICS: "GET_PHOTOS_BY_TOPICS",
 };
 
 export default useApplicationData;

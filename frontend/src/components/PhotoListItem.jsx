@@ -20,7 +20,6 @@ const PhotoListItem = (props) => {
     props;
 
   const handleClick = () => {
-    
     setSelectedPhoto(photoData);
     toggleModal();
   };
@@ -36,7 +35,6 @@ const PhotoListItem = (props) => {
         setFavList={setFavList}
         //key={props.key}
         id={photoData.id}
-        
       />
       <img
         src={photoData.urls.regular}

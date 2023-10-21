@@ -17,6 +17,7 @@ const App = () => {
     updateToFavPhotoIds,
     setPhotoSelected,
     onClosePhotoDetailsModal,
+    getPhotosByTopics
   } = useApplicationData();
 
   return (
@@ -28,8 +29,10 @@ const App = () => {
         key={state.selectedPhoto.id}
         id={state.selectedPhoto.id}
         favList={state.favList}
-        photoData={state.photoData}
         setFavList={updateToFavPhotoIds}
+        photoData={state.photoData}
+        topicData={state.topicData}
+        getPhotosByTopics={getPhotosByTopics}
       />
       {state.showModal && (
         <>
