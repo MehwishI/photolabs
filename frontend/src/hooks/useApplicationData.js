@@ -1,19 +1,25 @@
 import React, { useReducer, useState } from "react";
+
 const reducer = (state, action) => {
   switch (action.type) {
-    case FAV_PHOTO_ADDED:
+    case "FAV_PHOTO_ADDED":
       console.log("action:", action);
       const newFavList = [...state.favList, action.payload];
       return { ...state, favList: newFavList };
 
-    case FAV_PHOTO_REMOVED: 
-    return {...state,favList,action}
+    case "FAV_PHOTO_REMOVED":
+      const newFavListR = favList.filter((item) => item !== action.payload);
+      return { ...state, favList: newFavListR };
     // case SET_PHOTO_DATA:
 
     //    return {}
     // case SET_TOPIC_DATA:
-    // case SELECT_PHOTO:
-    // case DISPLAY_PHOTO_DETAILS:  return state.showModal=true:
+    case "SELECT_PHOTO":
+      return { ...state, selectedPhoto: action.payload };
+
+    case "DISPLAY_PHOTO_DETAILS":
+      console.log("action.payload in display photo details", action.payload);
+      return { ...state, showModal: action.payload };
 
     default:
       throw new Error(
@@ -42,6 +48,7 @@ const useApplicationData = () => {
   const initialState = {
     favList: [],
     showModal: false,
+    selectedPhoto: {},
   };
 
   // const toggleModal = () => {
@@ -56,12 +63,16 @@ const useApplicationData = () => {
   const setPhotoSelected = (photo) => {
     //setSelectedPhoto(photo);
     //dispatch here
-    console.log("photo:", photo);
+    //console.log("photo:", photo);
     dispatch({ type: "SELECT_PHOTO", payload: photo });
   };
-  const onClosePhotoDetailsModal = () => {
+  const onClosePhotoDetailsModal = (value) => {
     // if (showModal) {
-    setShowModal(!showModal);
+    //setShowModal(!showModal);
+
+    //console.log("showModal value before dispatch: ", showModal);
+    dispatch({ type: "DISPLAY_PHOTO_DETAILS", payload: value });
+    console.log("showModal value after dispatch: ", !showModal);
 
     // }
   };

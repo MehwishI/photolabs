@@ -19,13 +19,13 @@ const PhotoListItem = (props) => {
   const { photoData, setSelectedPhoto, toggleModal, favList, setFavList } =
     props;
 
-  const handleClick = () => {
-    toggleModal();
+  //const handleClick = () => {
+  //toggleModal();
 
-    // console.log("props received by photolistitem", props);
-    setSelectedPhoto(photoData);
-    //  console.log("setSelectedphoto", selectedPhoto);
-  };
+  // console.log("props received by photolistitem", props);
+  setSelectedPhoto(photoData);
+  //  console.log("setSelectedphoto", selectedPhoto);
+
   return (
     <div className="photo-list__item">
       <PhotoFavButton
@@ -37,7 +37,7 @@ const PhotoListItem = (props) => {
       <img
         src={photoData.urls.regular}
         className="photo-list__image"
-        onClick={() => handleClick()}
+        onClick={() => toggleModal()}
       ></img>
       <br />
       <div className="photo-list__user_header">
