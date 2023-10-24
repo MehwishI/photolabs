@@ -15,6 +15,8 @@ const HomeRoute = (props) => {
     selectedPhoto,
     setSelectedPhoto,
     photoData,
+    setDarkMode,
+    isDarkMode,
   } = props;
   return (
     <div className="home-route">
@@ -22,6 +24,8 @@ const HomeRoute = (props) => {
         favList={favList}
         topicData={topicData}
         getPhotosByTopics={getPhotosByTopics}
+        setDarkMode={setDarkMode}
+        isDarkMode={isDarkMode}
       />
       <PhotoList
         favList={favList}

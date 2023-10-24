@@ -23,6 +23,9 @@ const reducer = (state, action) => {
 
     case "DISPLAY_PHOTO_DETAILS":
       return { ...state, showModal: action.payload };
+    
+      case "SET_DARK_MODE":
+      return {...state,isDarkMode:action.payload}
 
     default:
       throw new Error(
@@ -38,6 +41,7 @@ const useApplicationData = () => {
     favList: [],
     showModal: false,
     selectedPhoto: {},
+    isDarkMode:false
   };
 
   useEffect(() => {
@@ -85,12 +89,18 @@ const useApplicationData = () => {
       });
   };
 
+  const setDarkMode = (mode)=>{
+    dispatch({type: "SET_DARK_MODE", payload:mode});
+
+  }
+
   return {
     state,
     updateToFavPhotoIds,
     setPhotoSelected,
     onClosePhotoDetailsModal,
     getPhotosByTopics,
+    setDarkMode
   };
 };
 
@@ -102,6 +112,7 @@ export const ACTIONS = {
   SELECT_PHOTO: "SELECT_PHOTO",
   DISPLAY_PHOTO_DETAILS: "DISPLAY_PHOTO_DETAILS",
   GET_PHOTOS_BY_TOPICS: "GET_PHOTOS_BY_TOPICS",
+  SET_DARK_MODE:"SET_DARK_MODE"
 };
 
 export default useApplicationData;

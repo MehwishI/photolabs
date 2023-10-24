@@ -1,5 +1,5 @@
 .App {
-  margin: 24px;
+  margin: 0px;
 }
 
 .App-logo {
@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+// copy
+// $background-color-dark: #292a32;
+// $background-color-light: #fbfaf8;
+// $complimentary-color-dark: #393b43;
+// $complimentary-color-light: #feffff;
+
+// body {
+//     background-color: $background-color-light;
+//     color: $background-color-dark;
+// }
+
+// body.dark-mode {
+//     background-color: $background-color-dark;
+//     color: $background-color-light;
+// }

@@ -17,4 +17,24 @@
   color: #111;
   text-underline-position: auto;
   margin-left: 24px;
+
 }
+
+.dark-mode .top-nav-bar__logo {
+  color: white;
+}
+// .dark-mode
+// .dark-mode .top-nav-bar__logo
+// .dark-mode.top-nav-bar__logo
+
+// .wrapper.dark-mode
+
+
+//this only works in SASS , not in regular CSS
+.dark-mode {
+  .top-nav-bar__logo {
+    color: white;
+  }
+  
+}
+
