@@ -1,8 +1,14 @@
-# react-photolabs
-
-The PhotoLabs project for the Web Development React course programming.
 
 # Photolabs
+
+A single page react based photo library created for sharing and viewing photos.
+
+MAIN PAGE - FRONT END
+![List-of-Photos](https://github.com/MehwishI/photolabs/blob/main/frontend/docs/list-of-photos.JPG?raw=true)
+
+![Photo-enlarged](https://github.com/MehwishI/photolabs/blob/main/frontend/docs/photo-enlarged.JPG?raw=true)
+
+
 
 ## Setup
 
@@ -24,7 +30,3 @@ cd backend
 npm start
 ```
 
-MAIN PAGE - FRONT END
-![List-of-Photos](https://github.com/MehwishI/photolabs/blob/main/frontend/docs/list-of-photos.JPG?raw=true)
-
-![Photo-enlarged](https://github.com/MehwishI/photolabs/blob/main/frontend/docs/photo-enlarged.JPG?raw=true)
